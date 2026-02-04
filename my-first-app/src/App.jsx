@@ -10,8 +10,12 @@ function App() {
     setUserEmail(email)
   }
 
+  const handleSignOut = () => {
+    setUserEmail('')
+  }
+
   return userEmail ? (
-    <Welcome email={userEmail} />
+    <Welcome email={userEmail} onSignOut={handleSignOut} />
   ) : (
     <Login onLogin={handleLogin} />
   )

@@ -136,6 +136,21 @@
   line-height: 1.6;
 }
 
+.welcome__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.welcome__button--secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.welcome__button--secondary:hover {
+  box-shadow: 0 12px 20px -12px rgba(148, 163, 184, 0.8);
+}
+
 @media (max-width: 480px) {
   .login__card,
   .welcome__card {
