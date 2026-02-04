@@ -1,15 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Login from './components/Login'
+import Welcome from './components/Welcome'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userEmail, setUserEmail] = useState('')
 
-  return (
-    <>
-      <h2>Hello World</h2>
-    </>
+  const handleLogin = (email) => {
+    setUserEmail(email)
+  }
+
+  return userEmail ? (
+    <Welcome email={userEmail} />
+  ) : (
+    <Login onLogin={handleLogin} />
   )
 }
 
