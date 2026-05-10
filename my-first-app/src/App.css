@@ -13,12 +13,15 @@
   padding: 2rem;
 }
 
-.login {
+.login,
+.welcome {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+.login__card,
+.welcome__card {
 .login__card {
   width: min(420px, 100%);
   background: #ffffff;
@@ -36,15 +39,16 @@
   gap: 0.5rem;
 }
 
-.login__eyebrow {
+.login__eyebrow,
+.welcome__eyebrow {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #64748b;
 }
-
-.login__title {
+.login__title,
+.welcome__title {
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
@@ -89,6 +93,68 @@
   gap: 0.5rem;
   font-size: 0.95rem;
   color: #334155;
+}
+
+.login__button,
+.welcome__button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login__button:hover,
+.welcome__button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px -12px rgba(79, 70, 229, 0.8);
+}
+
+.login__footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.login__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.login__link:hover {
+  color: #4f46e5;
+}
+
+.welcome__message {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.welcome__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.welcome__button--secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.welcome__button--secondary:hover {
+  box-shadow: 0 12px 20px -12px rgba(148, 163, 184, 0.8);
+}
+
+@media (max-width: 480px) {
+  .login__card,
+  .welcome__card {
+    padding: 2rem 1.5rem;
 }
 
 .login__button {

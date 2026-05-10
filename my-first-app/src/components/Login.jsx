@@ -6,6 +6,8 @@ const initialFormState = {
   remember: false,
 }
 
+function Login({ onLogin }) {
+  const [formState, setFormState] = useState(initialFormState)
 function Login() {
   const [formState, setFormState] = useState(initialFormState)
   const [statusMessage, setStatusMessage] = useState('')
@@ -21,6 +23,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    onLogin(formState.email)
     setStatusMessage(`Welcome back, ${formState.email || 'friend'}!`)
   }
 
