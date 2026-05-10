@@ -8,8 +8,6 @@ const initialFormState = {
 
 function Login({ onLogin }) {
   const [formState, setFormState] = useState(initialFormState)
-function Login() {
-  const [formState, setFormState] = useState(initialFormState)
   const [statusMessage, setStatusMessage] = useState('')
 
   const handleChange = (event) => {

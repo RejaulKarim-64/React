@@ -18,15 +18,7 @@ function App() {
     <Welcome email={userEmail} onSignOut={handleSignOut} />
   ) : (
     <Login onLogin={handleLogin} />
-import './App.css'
-import Login from './components/Login'
-
-function App() {
-  return (
-    <>
-      <Login />
-    </>
   )
 }
 
-export default App
+export default App;
