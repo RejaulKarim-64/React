@@ -154,7 +154,7 @@
 @media (max-width: 480px) {
   .login__card,
   .welcome__card {
-=======
+    padding: 2rem 1.5rem;
 }
 
 .login__button {
