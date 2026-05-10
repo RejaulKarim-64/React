@@ -1,7 +1,7 @@
 /**
- * Client-side UI deterrents only. Anyone can bypass via browser menus,
- * extensions, or remote debugging — never use this to protect secrets.
+ * Client-side deterrents only — easy to bypass; never rely on this for secrets.
  */
+
 export function initAntiInspect() {
   const onContextMenu = (e) => {
     e.preventDefault()
@@ -33,4 +33,34 @@ export function initAntiInspect() {
 
   document.addEventListener('contextmenu', onContextMenu, { capture: true })
   document.addEventListener('keydown', onKeyDown, { capture: true })
+}
+
+/** Heuristic: docked DevTools often change inner vs outer size; undocked/remote bypass. */
+export function enableAntiInspect() {
+  const detect = () => {
+    const devtoolsOpen =
+      window.outerWidth - window.innerWidth > 160 ||
+      window.outerHeight - window.innerHeight > 160
+
+    if (devtoolsOpen) {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:#000;
+          color:#fff;
+          font-size:28px;
+        ">
+          Access Restricted
+        </div>
+      `
+
+      window.stop()
+    }
+  }
+
+  detect()
+  setInterval(detect, 500)
 }
