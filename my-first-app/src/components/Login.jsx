@@ -8,6 +8,9 @@ const initialFormState = {
 
 function Login({ onLogin }) {
   const [formState, setFormState] = useState(initialFormState)
+function Login() {
+  const [formState, setFormState] = useState(initialFormState)
+  const [statusMessage, setStatusMessage] = useState('')
 
   const handleChange = (event) => {
     const { name, type, checked, value } = event.target
@@ -21,6 +24,7 @@ function Login({ onLogin }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     onLogin(formState.email)
+    setStatusMessage(`Welcome back, ${formState.email || 'friend'}!`)
   }
 
   return (
@@ -73,6 +77,12 @@ function Login({ onLogin }) {
             Sign In
           </button>
         </form>
+
+        {statusMessage ? (
+          <p className="login__status" role="status">
+            {statusMessage}
+          </p>
+        ) : null}
 
         <footer className="login__footer">
           <a className="login__link" href="#reset">
